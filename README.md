@@ -21,7 +21,7 @@ The I2C address of the of the DAC are defined in this lines:
 
 #define I2C_7BITADDR_1 0x63 // 
 
-You need soldier the pcb pads of the MCP4726 to correct the address if you want to control the two wheels (using two MCP4726).
+You need soldier the pcb pads of the MCP4725 to correct the address if you want to control the two wheels (using two MCP4725).
 
 In the motor_driver.h I defined the function to set the motor speed (this function sent the values of the PID to the wheels) 
 
