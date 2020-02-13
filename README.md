@@ -1,6 +1,3 @@
-# ros_arduino_bridge
-ROS_ARDUINO_BRIDGE modified to use e-bike wheels with ROS. 
-
 # using e-bike wheels with ROS_ARDUINO_BRIDGE
 #define SCL_PIN 3 // = A3
 
