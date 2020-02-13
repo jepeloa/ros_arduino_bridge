@@ -1,4 +1,4 @@
-# Control e-bike wheels with ROS_ARDUINO_BRIDGE
+# Overview
 
 A modification of the original ros_arduino_bridge library https://github.com/hbrobotics/ros_arduino_bridge to control e-bike wheels with ROS. This modification also works for measure the odometry (using the rotation of the wheel) with the hall sensors that the e-bike motor have.
 
