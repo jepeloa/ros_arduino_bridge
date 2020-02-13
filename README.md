@@ -10,6 +10,7 @@ For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO 
 In the code i'm add a definition,
 
 #define SCL_PIN 3 // = A3
+
 define Sda_PIN 2 // = A2
 
 In my harware configuration i'm used A2 and A3 to control de I2C port to connect two the MCP4726, the A4 and A5 lines cannot be used because the ros_arduino_bridge library measure the odometry of one of the wheels with a quadrature encoder using this pins.
