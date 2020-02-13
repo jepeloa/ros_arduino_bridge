@@ -1,12 +1,7 @@
 # ros_arduino_bridge
 ROS_ARDUINO_BRIDGE modified to use e-bike wheels with ROS. 
-This library is a modification of https://github.com/hbrobotics/ros_arduino_bridge to connect an e-bike wheels to ROS. I defined a new type of driver motor named ebike_motor.  With that i'm defined an I2C port by software with the library https://github.com/felias-fogg/SoftI2CMaster to control two DAC MCP4726.
-I'm defined the I2C port in this lines:
 
-#define SDA_PIN 2 // = A2
-
-#define SCL_PORT PORTC
-
+# using e-bike wheels with ROS_ARDUINO_BRIDGE
 #define SCL_PIN 3 // = A3
 
 In my harware configuration i'm used A2 and A3 to control de I2C port to connect two the MCP4726, the A4 and A5 lines cannot be used because the ros_arduino_bridge library measure the odometry of one of the wheels with a quadrature encoder using this pins.
@@ -23,12 +18,17 @@ In the motor_driver.h I defined the function to set the motor speed (this functi
 
 The funcion sent the values of each DAC for move the wheels independently. There is the posibility of record the last value of voltage in the eeprom of the DAC, in my case i didn't use this option.
 
+# Connect to e-bike wheel
 
+The way to connect the e-bike wheel to the DAC is using the accelerator line of the brain power controller. The accelerator line have three cables, red (+5V), black(GND) and white (voltage signal). If you connect the white cable to the VOUT of the DAC and the GND(black) to the GND of the Arduino, every voltage in a range of 0-2V (generally this is a common value but depend of the controller) must move the wheel.
 
+The pins A2 and A3 of the arduino must connected to the SDA and SCL of both MCP4726, and each VOUT to the withe cable of the accelerator line of the e-bikes controllers.
 
+# Measure the odometry
 
+To obtain the odometry using the rotation of the wheels it's necesary connect two of the three outs of the hall sensor of the e-bike motors to the pins A4, A5 of the arduino for one wheel and D2, D3 for the other.
 
-
+I'm my case one round of the wheel is about to 78 pulses. Depends of the type of wheel this value can change. It's possible measure using he command e in the serial terminal of the arduino to obtain the amount of pulser per round. The ros_arduino_bridge library have a set of commands that you can execute in the serial terminal, the "e" commands get the total amount of pulses, it's possible that you need reset the encoders usinf before the command "r"
 
 
 
