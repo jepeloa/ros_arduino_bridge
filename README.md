@@ -40,5 +40,7 @@ To obtain the odometry using the rotation of the wheels it's necesary connect tw
 I'm my case one round of the wheel is about to 78 pulses. Depends of the type of wheel this value can change. It's possible measure using he command e in the serial terminal of the arduino to obtain the amount of pulser per round. The ros_arduino_bridge library have a set of commands that you can execute in the serial terminal, the "e" commands get the total amount of pulses, it's possible that you need reset the encoders usinf before the command "r"
 
 
+# Complete schematic circuit
+
 ![alt text](https://github.com/jepeloa/ros_arduino_bridge/blob/master/esquematico.png)
 
