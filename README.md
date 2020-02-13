@@ -6,10 +6,12 @@ A modification of the original ros_arduino_bridge library https://github.com/hbr
 # Integrate the MCP4725 to the ros_arduino_bridge 
 
 To control the velocity of the wheels, the controller have a line in where it's possible send a voltage to control the speed of rotation. This voltage can generated using an external signal, that in my case is a DAC MCP4725.
-For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO board it's located in the pins A4 and A5. The problem with this pins is that cannot use them because in the arduino_ros_bridge library are used to measured the odometry. 
+For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO board it's located in the pins A4 and A5. The problem with this pins is that cannot use them because in the arduino_ros_bridge library are used to measured the odometry. To resolve this there is a Softi2C library (https://github.com/felias-fogg/SoftI2CMaster) that can used to emulate by software the I2C comunication over another pins. In my case i'm used the A2 to SDA and A3 to SCL. This pinout works for me.
+In the code i'm add a definition,
 
 #define SCL_PIN 3 // = A3
 define Sda_PIN 2 // = A2
+
 In my harware configuration i'm used A2 and A3 to control de I2C port to connect two the MCP4726, the A4 and A5 lines cannot be used because the ros_arduino_bridge library measure the odometry of one of the wheels with a quadrature encoder using this pins.
 
 The I2C address of the of the DAC are defined in this lines:
