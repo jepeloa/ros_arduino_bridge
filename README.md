@@ -1,6 +1,6 @@
 # Control e-bike wheels with ROS_ARDUINO_BRIDGE
 
-A modification of the original ros_arduino_bridge library https://github.com/hbrobotics/ros_arduino_bridge to control e-bike wheels with ROS. This modification also works for measure the odometry (using the rotation of the wheel) with the hall sensors that the e-bike motor have. The control of the wheel are done with a DAC MCP4725 connected to the accelerator line of the motor controller.
+A modification of the original ros_arduino_bridge library https://github.com/hbrobotics/ros_arduino_bridge to control e-bike wheels with ROS. This modification also works for measure the odometry (using the rotation of the wheel) with the hall sensors that the e-bike motor have.
 
 To control the velocity of the wheels, the controller have a line in where it's possible send a voltage to control the speed of rotation. This voltage can generated using an external signal, that in my case is a DAC MCP4725.
 For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO board it's located in the pins A4 and A5. The problem with this pins is that cannot use them because in the arduino_ros_bridge library are used to measured the odometry.
