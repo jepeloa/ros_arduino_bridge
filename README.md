@@ -1,6 +1,12 @@
-# using e-bike wheels with ROS_ARDUINO_BRIDGE
-#define SCL_PIN 3 // = A3
+# Control e-bike wheels with ROS_ARDUINO_BRIDGE
 
+A modification of the original ros_arduino_bridge library https://github.com/hbrobotics/ros_arduino_bridge to control e-bike wheels with ROS. This modification also works for measure the odometry (using the rotation of the wheel) with the hall sensors that the e-bike motor have. The control of the wheel are done with a DAC MCP4725 connected to the accelerator line of the motor controller.
+
+# Integrate the DAC MCP4725 to the ROS_ARDUINO_BRIDGE 
+I'm created a new definition in the original code to 
+
+#define SCL_PIN 3 // = A3
+define Sda_PIN 2 // = A2
 In my harware configuration i'm used A2 and A3 to control de I2C port to connect two the MCP4726, the A4 and A5 lines cannot be used because the ros_arduino_bridge library measure the odometry of one of the wheels with a quadrature encoder using this pins.
 
 The I2C address of the of the DAC are defined in this lines:
