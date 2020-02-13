@@ -5,7 +5,7 @@ A modification of the original ros_arduino_bridge library https://github.com/hbr
 To control the velocity of the wheels, the controller have a line in where it's possible send a voltage to control the speed of rotation. This voltage can generated using an external signal, that in my case is a DAC MCP4725.
 For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO board it's located in the pins A4 and A5. The problem with this pins is that cannot use them because in the arduino_ros_bridge library are used to measured the odometry.
 
-# Integrate the DAC MCP4725 to the ROS_ARDUINO_BRIDGE 
+# Integrate the MCP4725 to the ros_arduino_bridge 
 
 To 
 
