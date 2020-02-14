@@ -34,8 +34,10 @@ The funcion sent the values of each DAC for move the wheels independently. There
 # Connect to e-bike wheel
 
 The way to connect the e-bike wheel to the DAC is using the accelerator line of the brain power controller. The accelerator line have three cables, red (+5V), black(GND) and white (voltage signal). If you connect the white cable to the VOUT of the DAC and the GND(black) to the GND of the Arduino, every voltage in a range of 0-2V (generally this is a common value but depend of the controller) must move the wheel.
+![alt text](https://github.com/jepeloa/ros_arduino_bridge/blob/master/brainpower_controller.png)
 
-The pins A2 and A3 of the arduino must connected to the SDA and SCL of both MCP4726, and each VOUT to the withe cable of the accelerator line of the e-bikes controllers.
+
+The pins A2 and A3 of the arduino must connected to the SDA and SCL of both MCP4725, and each VOUT to the withe cable of the accelerator line of the e-bikes controllers.
 
 # Measure the odometry
 
