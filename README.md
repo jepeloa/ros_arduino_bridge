@@ -11,13 +11,38 @@ For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO 
 ![alt text](https://github.com/jepeloa/ros_arduino_bridge/blob/master/mcp4725.jpeg)
 
 To resolve the pinout issue, there is a Softi2C library (https://github.com/felias-fogg/SoftI2CMaster) that can used to emulate by software the I2C comunication over another pins. In my case i'm used the A2 to SDA and A3 to SCL. This pinout works for me.
-In the code i'm add a definition,
+In the code i'm add a new definition named ebike_motor using #ifdef ebike_motor sentence. When the program compiles, if define ebike_motor isn't commented the code executes, bellow there is a part of the code  
 
-#define SCL_PIN 3 // = A3
 
-define Sda_PIN 2 // = A2
+#ifdef ebike_motor   
 
-In my harware configuration i'm used A2 and A3 to control de I2C port to connect two the MCP4726, the A4 and A5 lines cannot be used because the ros_arduino_bridge library measure the odometry of one of the wheels with a quadrature encoder using this pins.
+#define I2C_TIMEOUT 1000
+
+#define I2C_PULLUP 1
+
+#define SDA_PORT PORTC
+
+#define SDA_PIN 2 // = A3
+
+#define SCL_PORT PORTC
+
+#define SCL_PIN 3 // = A
+
+#include <SoftI2CMaster.h>
+
+#define I2C_7BITADDR_0 0x62 // rigth accelerator
+
+#define I2C_7BITADDR_1 0x63 // Left accelerator
+
+#define ADDRLEN 1 // address length, usually 1 or 2 bytes
+
+#define MCP4726_CMD_WRITEDAC            (0x40)  // Writes data to the DAC
+
+#define MCP4726_CMD_WRITEDACEEPROM      (0x60)  // Writes data to the DAC and the EEPROM 
+
+#endif
+
+In my harware configuration i'm used A2 and A3 to control de I2C port to connect two the MCP4725, the A4 and A5 lines cannot be used because the ros_arduino_bridge library measure the odometry of one of the wheels with a quadrature encoder using this pins.
 
 The I2C address of the of the DAC are defined in this lines:
 
