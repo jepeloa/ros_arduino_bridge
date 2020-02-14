@@ -11,7 +11,7 @@ For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO 
 ![alt text](https://github.com/jepeloa/ros_arduino_bridge/blob/master/mcp4725.jpeg)
 
 To resolve the pinout issue, there is a Softi2C library (https://github.com/felias-fogg/SoftI2CMaster) that can used to emulate by software the I2C comunication over another pins. In my case i'm used the A2 to SDA and A3 to SCL. This pinout works for me.
-In the code i'm add a new definition named ebike_motor using #ifdef ebike_motor sentence. When the program compiles, if define ebike_motor isn't commented the code executes, bellow there is a part of the code  
+In the code i'm add a new definition named ebike_motor using #ifdef ebike_motor sentence. When the program compiles, if define ebike_motor isn't commented the code executes, bellow there is a part of the code:  
 
 
 #ifdef ebike_motor   
