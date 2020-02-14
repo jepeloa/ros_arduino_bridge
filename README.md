@@ -10,7 +10,7 @@ For use the DAC MCP4725 it's necessary use an I2C port, that in the Arduino UNO 
 
 ![alt text](https://github.com/jepeloa/ros_arduino_bridge/blob/master/mcp4725.jpeg)
 
-To resolve this there is a Softi2C library (https://github.com/felias-fogg/SoftI2CMaster) that can used to emulate by software the I2C comunication over another pins. In my case i'm used the A2 to SDA and A3 to SCL. This pinout works for me.
+To resolve the pinout issue, there is a Softi2C library (https://github.com/felias-fogg/SoftI2CMaster) that can used to emulate by software the I2C comunication over another pins. In my case i'm used the A2 to SDA and A3 to SCL. This pinout works for me.
 In the code i'm add a definition,
 
 #define SCL_PIN 3 // = A3
