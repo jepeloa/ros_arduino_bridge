@@ -3,6 +3,8 @@
 A modification of the original ros_arduino_bridge library https://github.com/hbrobotics/ros_arduino_bridge to control e-bike wheels with ROS. This modification also works for measure the odometry (using the rotation of the wheel) with the hall sensors that the e-bike motor have.
 https://jepeloa.medium.com/controlling-e-bike-wheels-with-ros-1e58bc4d688f
 
+URL of the project: https://gbot.ag/home-2/
+
 
 
 # Integrate the MCP4725 to the ros_arduino_bridge 
